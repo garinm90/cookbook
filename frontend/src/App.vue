@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    {{info }}
+    <h1>Recipes</h1>
+    <div
+    v-for="recipe in info"
+    :key="recipe.id"
+    >
+    {{ recipe.recipe_name }}
+
+    </div>
   </div>
 </template>
 
@@ -18,6 +25,7 @@ export default {
   mounted(){
     axios.get('http://127.0.0.1:8000/recipes/')
     .then(response => (this.info = response.data))
+    .catch(error => console.log(error))
   }
 }
 </script>
