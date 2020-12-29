@@ -1,18 +1,30 @@
-/* eslint-disable quotes */
 <template>
-  <div id="app"></div>
+  <div id="app">
+    {{info }}
+  </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: "App",
-  components: {},
-};
+  name: 'App',
+
+  data(){
+    return{
+      info: null
+    }
+  },
+  mounted(){
+    axios.get('http://127.0.0.1:8000/recipes/')
+    .then(response => (this.info = response.data))
+  }
+}
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
