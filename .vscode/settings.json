@@ -6,5 +6,6 @@
         "javascriptreact",
         "vue"
       ],
+    "eslint.options": { "configFile": "/home/max/cookbook/frontend/.eslintrc.js" },
       
 }

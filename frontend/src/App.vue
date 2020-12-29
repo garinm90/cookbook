@@ -1,30 +1,18 @@
+/* eslint-disable quotes */
 <template>
-  <div id="app">
-    <div id="secret_message">
-      <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
-      </span>
-    </div>
-
-  </div>
+  <div id="app"></div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  message: message
-}
- 
- var message = 'You loaded this page on ' + new Date().toLocaleString()
-  
-
+  name: "App",
+  components: {},
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
