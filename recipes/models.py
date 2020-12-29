@@ -10,22 +10,9 @@ class Recipe(models.Model):
     ingredient = models.ManyToManyField(
         "Ingredient", related_name="recipes", through="IngredientQuantity"
     )
-    print(ingredient)
 
     def __str__(self) -> str:
         return f"{self.recipe_name}"
-
-
-# class RecipeIngredient(models.Model):
-#     class Meta:
-#         verbose_name = "Recipe Ingredient"
-#         verbose_name_plural = "Recipe Ingredients"
-
-#     recipe_id = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-#     ingredient = models.ManyToManyField("Ingredient", blank=True)
-
-#     def __str__(self) -> str:
-#         return f"{self.recipe_id}"
 
 
 class Ingredient(models.Model):
