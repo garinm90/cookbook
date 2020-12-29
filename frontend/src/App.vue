@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted(){
-    axios.get('http://127.0.0.1:8000/recipes/')
+    axios.get('/recipes')
     .then(response => (this.info = response.data))
     .catch(error => console.log(error))
   }
