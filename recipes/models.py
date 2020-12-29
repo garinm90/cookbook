@@ -12,6 +12,10 @@ class Recipe(models.Model):
 
 
 class RecipeIngredients(models.Model):
+    class Meta:
+        verbose_name = "Recipe Ingredient"
+        verbose_name_plural = "Recipe Ingredients"
+
     recipe_id = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     pass
@@ -21,6 +25,10 @@ class MeasurementUnit(models.Model):
     """
     docstring
     """
+
+    class Meta:
+        verbose_name = "unit"
+        verbose_name_plural = "units"
 
     VOLUME = "VL"
     MASS = "MS"
@@ -54,6 +62,10 @@ class IngredientQuantity(models.Model):
     """
     docstring
     """
+
+    class Meta:
+        verbose_name = "quantity"
+        verbose_name_plural = "quantities"
 
     recipe_ingredients_id = models.ForeignKey(
         RecipeIngredients, on_delete=models.CASCADE
