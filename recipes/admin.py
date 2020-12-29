@@ -1,3 +1,15 @@
 from django.contrib import admin
+from .models import (
+    Ingredient,
+    IngredientQuantity,
+    MeasurementUnit,
+    Recipe,
+    RecipeIngredients,
+)
 
-# Register your models here.
+
+@admin.register(
+    Ingredient, IngredientQuantity, MeasurementUnit, Recipe, RecipeIngredients
+)
+class RecipeAdmin(admin.ModelAdmin):
+    pass
