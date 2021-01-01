@@ -73,7 +73,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "cookbook.users.apps.UsersConfig",
-    "recipes.apps.RecipesConfig",
+    "cookbook.recipes.apps.RecipesConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
