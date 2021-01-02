@@ -39,7 +39,8 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 
 DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///cookbook")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
-
+# Django enviroment fails to parse port from the url in the environment so set manually.
+DATABASES["default"]["PORT"] = 49155
 # URLS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
