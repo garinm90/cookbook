@@ -1,6 +1,5 @@
 {
   "python.formatting.provider": "black",
-  "python.pythonPath": "/home/max/.local/share/virtualenvs/cookbook-NIW-rGBq/bin/python",
   "eslint.validate": ["javascript", "javascriptreact", "vue"],
   "eslint.options": {
     "configFile": "/home/max/cookbook/frontend/.eslintrc.js"
