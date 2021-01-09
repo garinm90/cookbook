@@ -1,15 +1,22 @@
 from django.db import models
+from django.db.models.fields import DecimalField, FloatField, PositiveIntegerField
 
 
 class Recipe(models.Model):
     """
-    docstring
+    
     """
 
     recipe_name = models.CharField(max_length=100)
     ingredient = models.ManyToManyField(
         "Ingredient", related_name="ingredients", through="IngredientQuantity"
     )
+    number_of_servings = PositiveIntegerField()
+    calories_per_meal = DecimalField(decimal_places=2, max_digits=6)
+    fat_per_meal = DecimalField(decimal_places=2, max_digits=6)
+    carbohydrates_per_meal = DecimalField(decimal_places=2, max_digits=6)
+    protein_per_meal = DecimalField(decimal_places=2, max_digits=6)
+
 
     def __str__(self) -> str:
         return f"{self.recipe_name}"
@@ -17,21 +24,25 @@ class Recipe(models.Model):
 
 class Ingredient(models.Model):
     """
-    docstring
+    
     """
 
     VOLUME = "VL"
+    FLUID_OUNCES = "FLOZ"
+    TABLE_SPOON = "TBLSPN"
+    CUPS = "CUPS"
     MASS = "MS"
     OUNCES = "OZ"
     POUNDS = "LBS"
     GRAMS = "GR"
-    FLUID_OUNCES = "FLOZ"
     MASS_OR_VOLUME_MEASUREMENT = [(VOLUME, "Volume"), (MASS, "Mass")]
     UNIT_OF_MEASUREMENT = [
         (OUNCES, "Ounces"),
         (POUNDS, "Pounds"),
         (GRAMS, "Grams"),
         (FLUID_OUNCES, "Fluid Ounces"),
+        (CUPS, "Cups"),
+        (TABLE_SPOON, "Table Spoons")
     ]
 
     mass_or_volume_measurement = models.CharField(
@@ -40,13 +51,13 @@ class Ingredient(models.Model):
 
     ingredient_name = models.CharField(max_length=100)
     unit_of_measurement = models.CharField(
-        max_length=4, choices=UNIT_OF_MEASUREMENT, default=GRAMS
+        max_length=10, choices=UNIT_OF_MEASUREMENT, default=GRAMS
     )
 
-    serving_size = models.IntegerField()
-    fat_per_serving = models.PositiveIntegerField(default=0)
-    carbohydrates_per_serving = models.PositiveIntegerField(default=0)
-    protein_per_serving = models.PositiveIntegerField(default=0)
+    units_per = models.DecimalField(decimal_places=2, max_digits=5)
+    fat_per_serving = models.DecimalField(decimal_places=2, max_digits=5)
+    carbohydrates_per_serving = models.DecimalField(decimal_places=2, max_digits=5)
+    protein_per_serving = models.DecimalField(decimal_places=2, max_digits=5)
 
     def __str__(self) -> str:
         return f"{self.ingredient_name}"
