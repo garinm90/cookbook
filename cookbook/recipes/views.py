@@ -15,6 +15,7 @@ class RecipeListView(ListView):
 
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
+    fields = "__all__"
 
 
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
@@ -31,6 +32,7 @@ class IngredientListView(ListView):
 
 class IngredientCreateView(LoginRequiredMixin, CreateView):
     model = Ingredient
+    fields = "__all__"
 
 
 class IngredientUpdateView(LoginRequiredMixin, UpdateView):
