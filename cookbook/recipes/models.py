@@ -8,7 +8,7 @@ class Recipe(models.Model):
 
     recipe_name = models.CharField(max_length=100)
     ingredient = models.ManyToManyField(
-        "Ingredient", related_name="recipes", through="IngredientQuantity"
+        "Ingredient", related_name="ingredients", through="IngredientQuantity"
     )
 
     def __str__(self) -> str:
